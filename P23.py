@@ -17,4 +17,3 @@ if num <= length_list:              #CHECK IF LIST HAS ELEMENTS EQUAL TO THE GIV
          index_of_random = random.randint(0,length_list)        #GENERATED NUMBER WILL BE TREATED AS THE INDEX
          random_element_list.append(mylist[index_of_random])    #ADD ELEMENT AT THAT INDEX TO THE LIST
 print(random_element_list)
-
