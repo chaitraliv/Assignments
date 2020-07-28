@@ -1,9 +1,9 @@
-'''P09 (**) Pack consecutive duplicates of list elements into sublists.
-If a list contains repeated elements they should be placed in separate sublists.
+'''P11 (*) Modified run-length encoding.
+Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
 
 Example:
-* (pack '(a a a a b c c a a d e e e e))
-((A A A A) (B) (C C) (A A) (D) (E E E E))'''
+* (encode-modified '(a a a a b c c a a d e e e e))
+((4 A) B (2 C) (2 A) D (4 E))'''
 
 
 
@@ -13,7 +13,8 @@ def count_duplicate(test_list):
 
     print(f"List before removing duplication = {test_list}")
     previous= test_list[0]                              #add first element of the list to check with others
-    out,sub=[],[]                                                      #output list to return and sublist to create sublist of repeated elements
+    out,sub=[],[]                                                          #output list and sublist to save repeated elements
+
 
     for next_element in test_list:                              #iterate through the loop
        if previous == next_element:                         #if previous element is equal to new, add that element into a sublist
@@ -31,6 +32,18 @@ def count_duplicate(test_list):
     return out                              #return output list containing sublists of repeated and non repeated elements
 
 
+final = []                                                          #final output element list
 my_list = ['a','a','a','b','b','c','c','d','e','e','d','d','f']
-res = count_duplicate(my_list)
-print("List after packing repeated elements into sublists = ",res)
+res = count_duplicate(my_list)                      #the sublist packed output will be stored in res
+
+#iterate through this rest list,for every element of it(sublist), if the element is appearing only ones,unpack it from sublist
+for element in res:
+    if len(element) !=1:                                    #if the length of sublist is greater than one,
+        final.append(element)                                       #add that element(sublist) into final list
+
+    else:                                                   #if the length of element(sublist) is equal to one
+        for single in element:                                          #traverse through that sublist and add that single element into final list
+            final.append(single)
+
+
+print("\nList after packing repeated into sublists =\n",final)
