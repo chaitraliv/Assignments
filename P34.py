@@ -12,10 +12,10 @@ num = int(input('Enter value of m = '))
 
 #CREATE A FUNCTION TO CALCULATE GCD
 def find_gcd(n1,n2):
-    while n2!=0:            #BASE CASE IS - gcd(a,0) = a ; SO CHECK TILL N2 IS NOT ZERO
-        n1,n2= n2,n1%n2     #ACCORDING TO ALGORITH gcd(a,b)=gcd(b,r) where r=a%b
-        find_gcd(n1,n2)     #CONTINUE TO CALCULATE GCD FOR NEW N1 AND N2
-    return n1               #WHEN BASE CASE SATISFIES, RETURN N1 WHICH IS GCD
+    while n2!=0:                                      #BASE CASE IS - gcd(a,0) = a ; SO CHECK TILL N2 IS NOT ZERO
+        n1,n2= n2,n1%n2                                          #ACCORDING TO ALGORITH gcd(a,b)=gcd(b,r) where r=a%b
+        find_gcd(n1,n2)                                             #CONTINUE TO CALCULATE GCD FOR NEW N1 AND N2
+    return n1                                                 #WHEN BASE CASE SATISFIES, RETURN N1 WHICH IS GCD
 
 #function to calculate totient of number:
 def phi(m):
